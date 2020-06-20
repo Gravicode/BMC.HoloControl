@@ -1,0 +1,65 @@
+﻿<Page
+    x:Class="BMC.HoloControlApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BMC.HoloControlApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:my="using:Microsoft.Toolkit.Uwp.UI.Controls" 
+    mc:Ignorable="d"
+    Width="853"
+    Height="480"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Margin="5 5 5 5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Name="BtnExit" Margin="0 0 0 0" Content="X" Width="60" HorizontalAlignment="Right" Height="40" FontSize="20" BorderBrush="Transparent" BorderThickness="0" Background="DarkOrange" Foreground="Black"></Button>
+        <TextBlock Grid.Row="1" Text="Home Control" Foreground="White" FontSize="50" Margin="0 0 0 0" FontFamily="Calibri"></TextBlock>
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <TextBlock Text="Find Device :" Margin="10 0 10 0" FontSize="25"></TextBlock>
+            <TextBox Name="TxtSearch" Text="Lampu" FontSize="22" Width="500" BorderBrush="White" ></TextBox>
+            <Button Name="BtnFind" Margin="10 0 0 0" Width="100" FontSize="20" Content="Find" BorderBrush="White"></Button>
+        </StackPanel>
+        <ProgressBar Name="Progress1" Visibility="Collapsed" IsIndeterminate="True" Grid.Row="3" IsEnabled="True" Height="10" Width="700"  Foreground="Green"/>
+        <my:TabView Grid.Row="4" x:Name="TabView1" >
+            <my:TabViewItem Header="List of Device">
+                <ListView  Margin="10 10 10 10" Name="List1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0 5 0 5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="500"></ColumnDefinition>
+                                    <ColumnDefinition Width="120"></ColumnDefinition>
+                                    <ColumnDefinition Width="120"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition ></RowDefinition>
+
+                                </Grid.RowDefinitions>
+                                <TextBlock Margin="5 0 0 0" FontSize="20" Grid.Column="0" Text="{Binding Name}"/>
+                                <Button Margin="0 0 0 0" Tag="On" Click="Control_Device" FontSize="20" Grid.Column="1" Width="100" Content="Turn On"/>
+                                <Button Margin="0 0 0 0" Tag="Off" Click="Control_Device" FontSize="20" Grid.Column="2" Width="100" Content="Turn Off"/>
+                            </Grid>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </my:TabViewItem>
+            <my:TabViewItem Header="Another Tab">
+                <TextBlock Padding="16">Nothing here..</TextBlock>
+            </my:TabViewItem>
+        </my:TabView>
+
+
+    </Grid>
+</Page>
