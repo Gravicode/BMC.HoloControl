@@ -31,7 +31,7 @@
             <Button Name="BtnFind" Margin="10 0 0 0" Width="100" FontSize="20" Content="Find" BorderBrush="White"></Button>
         </StackPanel>
         <ProgressBar Name="Progress1" Visibility="Collapsed" IsIndeterminate="True" Grid.Row="3" IsEnabled="True" Height="10" Width="700"  Foreground="Green"/>
-        <my:TabView Grid.Row="4" x:Name="TabView1" >
+        <my:TabView Grid.Row="4" x:Name="TabView1" SelectionChanged="TabView1_SelectionChanged" >
             <my:TabViewItem Header="List of Device">
                 <ListView  Margin="10 10 10 10" Name="List1" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <ListView.ItemTemplate>
@@ -55,8 +55,68 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </my:TabViewItem>
-            <my:TabViewItem Header="Another Tab">
-                <TextBlock Padding="16">Nothing here..</TextBlock>
+           
+            <my:TabViewItem Header="Tony The Assistant">
+                <ScrollViewer>
+                <SplitView x:Name="Splitter" IsPaneOpen="True" Grid.Column="1" DisplayMode="Inline" Grid.Row="1">
+                    <SplitView.Pane>
+                        <RelativePanel Margin="10,0,0,0">
+                            <Grid x:Name="RootGrid" Margin="12,20,12,12">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <StackPanel Margin="0,0,0,10">
+                                    <TextBlock Text="Smart Assistant" Style="{StaticResource SampleHeaderTextStyle}"/>
+                                    <TextBlock Style="{StaticResource ScenarioDescriptionTextStyle}" TextWrapping="Wrap">Tony The Assistant.
+                                    </TextBlock>
+                                </StackPanel>
+
+                                <ScrollViewer Grid.Row="1" VerticalScrollMode="Auto" VerticalScrollBarVisibility="Auto">
+                                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Bahasa: " Margin="10,0,0,0" VerticalAlignment="Center"/>
+                                            <ComboBox x:Name="cbLanguageSelection" SelectionChanged="cbLanguageSelection_SelectionChanged" Margin="10" Width="200"/>
+                                        </StackPanel>
+
+
+                                        <TextBlock x:Name="listGrammarHelpText" Margin="0,5,0,0" TextWrapping="Wrap" Style="{StaticResource BodyTextBlockStyle}"/>
+                                        <TextBlock x:Name="heardYouSayTextBlock" Margin="0,5,0,0" Text="Heard you say" Visibility="Collapsed" TextWrapping="Wrap" Style="{StaticResource TitleTextBlockStyle}"/>
+                                        <TextBlock x:Name="resultTextBlock" Margin="0,5,0,0" Visibility="Collapsed" TextWrapping="Wrap" Style="{StaticResource BodyTextBlockStyle}"/>
+                                        <CaptureElement x:Name='WebcamFeed' Loaded="WebcamFeed_Loaded"/>
+                                        <MediaElement x:Name="speechMediaElement" HorizontalAlignment="Left" VerticalAlignment="Top" Loaded="speechMediaElement_Loaded"/>
+
+                                    </StackPanel>
+                                </ScrollViewer>
+
+                                <!-- Status Block for providing messages to the user.  Use the
+             NotifyUser() method to populate the message -->
+                                <TextBlock x:Name="StatusBlock" Grid.Row="2" Margin="12, 10, 12, 10" Visibility="Collapsed"/>
+                            </Grid>
+                        </RelativePanel>
+                    </SplitView.Pane>
+                    <RelativePanel>
+                        <StackPanel x:Name="StatusPanel"  Orientation="Vertical" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
+                            <MediaPlayerElement x:Name="Player1" AutoPlay="False" Margin="5" HorizontalAlignment="Stretch" Height="600" AreTransportControlsEnabled="True"/>
+                            <ListView Name="ListGambar" Visibility="Collapsed">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Image Width="100" Source="{Binding ImageSource}"/>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <TextBlock x:Name="StatusLabel" Margin="10,0,0,10" TextWrapping="Wrap" Text="Status:" />
+                            <Border x:Name="StatusBorder" Margin="0,0,0,0">
+                                <ScrollViewer VerticalScrollMode="Auto"  VerticalScrollBarVisibility="Auto" MaxHeight="200">
+                                    <TextBlock x:Name="StatusBlock2" FontWeight="Bold" 
+                                   MaxWidth="{Binding ElementName=Splitter, Path=ActualWidth}" Margin="10,10,10,20" TextWrapping="Wrap"  />
+                                </ScrollViewer>
+                            </Border>
+                        </StackPanel>
+                    </RelativePanel>
+                </SplitView>
+                </ScrollViewer>
             </my:TabViewItem>
         </my:TabView>
 
