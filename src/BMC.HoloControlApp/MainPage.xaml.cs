@@ -95,6 +95,7 @@ namespace BMC.HoloControlApp
                 List1.ItemsSource = DeviceData.FilterDevice(TxtSearch.Text);
                 Progress1.Visibility = Visibility.Collapsed;
             };
+            webView1.Source = new Uri( APPCONTANTS.PbiReportUrl);
             Inittony();
         }
         #region tony

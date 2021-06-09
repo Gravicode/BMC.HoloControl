@@ -17,43 +17,43 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition Height="70"></RowDefinition>
-            <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition Height="10"></RowDefinition>
-
+            <RowDefinition Height="35"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Button Grid.Row="0" Name="BtnExit" Margin="0 0 0 0" Content="X" Width="60" HorizontalAlignment="Right" Height="40" FontSize="20" BorderBrush="Transparent" BorderThickness="0" Background="DarkOrange" Foreground="Black"></Button>
-        <TextBlock Grid.Row="1" Text="Home Control" Foreground="White" FontSize="50" Margin="0 0 0 0" FontFamily="Calibri"></TextBlock>
-        <StackPanel Grid.Row="2" Orientation="Horizontal">
-            <TextBlock Text="Find Device :" Margin="10 0 10 0" FontSize="25"></TextBlock>
-            <TextBox Name="TxtSearch" Text="Lampu" FontSize="22" Width="500" BorderBrush="White" ></TextBox>
-            <Button Name="BtnFind" Margin="10 0 0 0" Width="100" FontSize="20" Content="Find" BorderBrush="White"></Button>
-        </StackPanel>
-        <ProgressBar Name="Progress1" Visibility="Collapsed" IsIndeterminate="True" Grid.Row="3" IsEnabled="True" Height="10" Width="700"  Foreground="Green"/>
-        <my:TabView Grid.Row="4" x:Name="TabView1" SelectionChanged="TabView1_SelectionChanged" >
+        <TextBlock Grid.Row="1" Text="Future Office" Foreground="White" FontSize="25" Margin="0 0 0 0" FontFamily="Calibri"></TextBlock>
+        <my:TabView Grid.Row="2" x:Name="TabView1" SelectionChanged="TabView1_SelectionChanged" >
             <my:TabViewItem Header="List of Device">
-                <ListView  Margin="10 10 10 10" Name="List1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid Margin="0 5 0 5">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="500"></ColumnDefinition>
-                                    <ColumnDefinition Width="120"></ColumnDefinition>
-                                    <ColumnDefinition Width="120"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition ></RowDefinition>
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Height="40" Orientation="Horizontal">
+                        <TextBlock Text="Find Device :" Margin="10 0 10 0" FontSize="25"></TextBlock>
+                        <TextBox Name="TxtSearch" Text="Lampu" FontSize="22" Width="500" BorderBrush="White" ></TextBox>
+                        <Button Name="BtnFind" Margin="10 0 0 0" Width="100" FontSize="20" Content="Find" BorderBrush="White"></Button>
+                    </StackPanel>
+                    <ProgressBar Name="Progress1" Visibility="Collapsed" IsIndeterminate="True" IsEnabled="True" Height="10" Width="700"  Foreground="Green"/>
+                    <ListView  Margin="10 10 10 10" Name="List1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="0 5 0 5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="500"></ColumnDefinition>
+                                        <ColumnDefinition Width="120"></ColumnDefinition>
+                                        <ColumnDefinition Width="120"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition ></RowDefinition>
 
-                                </Grid.RowDefinitions>
-                                <TextBlock Margin="5 0 0 0" FontSize="20" Grid.Column="0" Text="{Binding Name}"/>
-                                <Button Margin="0 0 0 0" Tag="On" Click="Control_Device" FontSize="20" Grid.Column="1" Width="100" Content="Turn On"/>
-                                <Button Margin="0 0 0 0" Tag="Off" Click="Control_Device" FontSize="20" Grid.Column="2" Width="100" Content="Turn Off"/>
-                            </Grid>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Margin="5 0 0 0" FontSize="20" Grid.Column="0" Text="{Binding Name}"/>
+                                    <Button Margin="0 0 0 0" Tag="On" Click="Control_Device" FontSize="20" Grid.Column="1" Width="100" Content="Turn On"/>
+                                    <Button Margin="0 0 0 0" Tag="Off" Click="Control_Device" FontSize="20" Grid.Column="2" Width="100" Content="Turn Off"/>
+                                </Grid>
 
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </StackPanel>
             </my:TabViewItem>
            
             <my:TabViewItem Header="Tony The Assistant">
@@ -116,6 +116,12 @@
                         </StackPanel>
                     </RelativePanel>
                 </SplitView>
+                </ScrollViewer>
+            </my:TabViewItem>
+
+            <my:TabViewItem Header="My Company">
+                <ScrollViewer>
+                    <WebView x:Name="webView1" />
                 </ScrollViewer>
             </my:TabViewItem>
         </my:TabView>

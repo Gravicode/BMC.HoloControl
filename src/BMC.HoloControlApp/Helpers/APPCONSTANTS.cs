@@ -9,7 +9,7 @@ namespace BMC.HoloControlApp.Helpers
     public class APPCONTANTS
     {
         //cognitive service
-        public const string MQTT_SERVER = "110.35.82.86";//"13.76.156.239";//"23.98.70.88";//"cloud.makestro.com"; //"cloud.makestro.com";
+        public const string MQTT_SERVER = "broker.emqx.io";//"110.35.82.86";//"13.76.156.239";//"23.98.70.88";//"cloud.makestro.com"; //"cloud.makestro.com";
         public const string MQTT_USER = "loradev_mqtt";
         public const string MQTT_PASS = "test123";
         public const string BING_API_KEY = "7cbea11a8b5344f08b2b5db408f91ed4";
@@ -28,6 +28,7 @@ namespace BMC.HoloControlApp.Helpers
         public const int IntervalTimerMin = 30;
         public const string BlobConnString = "DefaultEndpointsProtocol=https;AccountName=storagemurahaje;AccountKey=NU2f/5suzFgLyGYplR6ydXQ+6L8STLCRviDqJf+MS8bVWsO3L5VWFK3qaUltdPNwdd092st0eJWQIBvLI0WI1A==;EndpointSuffix=core.windows.net";// "DefaultEndpointsProtocol=https;AccountName=bmspace;AccountKey=TK7Yz24n8Mb89qzI2Vrwu0xCLW/EuB7fc1EjM2IcRHZHJXUCgIuaqOxGszOKE9uADIRY7XBJFfF0GWIX9/hKUw==;EndpointSuffix=core.windows.net";
         public const string AzureIoTCon = "HostName=FreeDeviceHub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=pGREIqFsT9rGgDkGJP3K5Vkrg5zmTnNZAxNeqWpT4UM=";
+        public const string PbiReportUrl = "https://app.powerbi.com/view?r=eyJrIjoiMWFhODBmZDctMjVkMy00ODgyLWExOWItNTQwMTc5NjJhOGJjIiwidCI6ImU0YTVjZDM2LWU1OGYtNGY5OC04YTFhLTdhOGU1NDVmYzY1YSIsImMiOjEwfQ%3D%3D";
         /*
         //cognitive service
         public const string MQTT_SERVER = "110.35.82.86";//"23.98.70.88";//"cloud.makestro.com"; //"cloud.makestro.com";
